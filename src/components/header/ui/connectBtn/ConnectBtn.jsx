@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import { Button } from "react-bootstrap";
-import { FaDownload } from "react-icons/fa";
+import { FaHandshake } from "react-icons/fa";
 import gsap from "gsap";
 
-function DownloadCv() {
+function ConnectBtn() {
   const buttonRef = useRef(null);
 
   useEffect(() => {
@@ -32,16 +32,19 @@ function DownloadCv() {
     });
   }, []);
 
+  const handleClick = () => {
+    window.open("https://www.linkedin.com/in/owaiszakir", "_blank");
+  };
+
   return (
-    <a href="/public/Owais_Zakir_CV .pdf" download>
-      <Button
-        ref={buttonRef}
-        className="linkBtn text-black shadow rounded-5 border-0 px-4 py-2 fs-6 fw-semibold d-flex align-items-center gap-2"
-      >
-        <FaDownload /> Download CV
-      </Button>
-    </a>
+    <Button
+      ref={buttonRef}
+      onClick={handleClick}
+      className="linkBtn text-black shadow rounded-5 border-0 px-4 py-2 fs-6 fw-semibold d-flex align-items-center gap-2"
+    >
+      <FaHandshake /> Let's Connect
+    </Button>
   );
 }
 
-export default DownloadCv;
+export default ConnectBtn;

@@ -5,75 +5,86 @@ import { LuAlignRight } from "react-icons/lu";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import DownloadCv from "../../components/header/ui/downloadCv/downloadCv";
+import ConnectBtn from "../../components/header/ui/connectBtn/ConnectBtn";
+import TypingEffect from "../../components/typingEffect/TypingEffect";
+import GlitchText from "../../components/Ui/GlitchText";
 
 function Home() {
-  const introRef = useRef(null);
-  const menuRef = useRef(null);
+  const refs = useRef([]);
+
+  const elements = [
+    {
+      ref: "introRef",
+      icon: <MdOutlineHome className="fs-4 mb-1" />,
+      text: "Introduction",
+    },
+    { ref: "menuRef", icon: <LuAlignRight className="fs-4 mb-1" />, text: "" },
+  ];
 
   useGSAP(() => {
-    gsap.from(introRef.current, {
-      opacity: 0,
-      duration: 2.5,
-      ease: "bounce.out",
-      x: -200,
+    const ctx = gsap.context(() => {
+      gsap.from(refs.current, {
+        opacity: 0,
+        y: 50,
+        duration: 1.5,
+        stagger: 0.3,
+        ease: "power3.out",
+      });
     });
-    gsap.from(menuRef.current, {
-      opacity: 0,
-      duration: 2.5,
-      ease: "bounce.out",
-      x: 200,
-    });
+
+    return () => ctx.revert();
   }, []);
+
   return (
     <Container className="pt-lg-5 h-screen">
+      {/* Buttons */}
       <Row>
-        <Col className="d-flex justify-content-between align-items-center ">
-          <Button
-            ref={introRef}
-            className=" mt-2 mb-5 btn px-3 fs-6 text-center rounded-5 border-2 border-white bg-transparent"
-          >
-            <MdOutlineHome className="fs-4 mb-1" />
-            <span className="mt-5 "> Introduction</span>
-          </Button>
-          <Button
-            ref={menuRef}
-            className=" mt-2 mb-5 btn  fs-6 text-center rounded-5 border-2 border-white bg-transparent"
-          >
-            <LuAlignRight className="fs-4 mb-1" />
-          </Button>
+        <Col className="d-flex justify-content-between align-items-center">
+          {elements.map((el, index) => (
+            <Button
+              key={index}
+              ref={(el) => (refs.current[index] = el)}
+              className="mt-2 mb-5 btn px-3 fs-6 text-center rounded-5 border-2 border-white bg-transparent"
+            >
+              {el.icon}
+              <span className="mt-5">{el.text}</span>
+            </Button>
+          ))}
         </Col>
       </Row>
 
+      {/* Content Section */}
       <Row>
         <Col className="d-flex justify-content-center align-items-center">
-          <div className="main-title d-flex flex-column gap-4">
+          <div
+            ref={(el) => (refs.current[2] = el)}
+            className="main-title d-flex flex-column gap-4"
+          >
             <div className="main-heading">
-              <h1 className="font-monospace display-3 fw-semibold">
-                {" "}
-                Hello! I'm
-                {" <"}
-                <span className="text-primary border-2 border-bottom ">
-                  <span>Owais</span> <span>Zakir</span>
-                </span>
-                /{">"},
-              </h1>
-              <h1 className="fw-bold">
-                A <span className="text-primary">Front-End Developer</span>
-              </h1>
+              <GlitchText />
+              <TypingEffect />
             </div>
-            <div className="pera ">
+            <div className="pera">
               <p className="fs-2 text-capitalize text-tertiary">
-                I build <span className="text-white fw-medium">responsive</span>
-                , performance{" "}
-                <span className="text-white fw-medium">driven</span> websites
-                and enjoy{" "}
-                <span className="text-white fw-medium">
-                  {" "}
-                  turning ideas into code.
-                </span>
+                {[
+                  { text: "I build ", highlight: "responsive" },
+                  { text: "performance ", highlight: "driven" },
+                  {
+                    text: "websites and enjoy ",
+                    highlight: "turning ideas into code.",
+                  },
+                ].map((item, index) => (
+                  <span key={index}>
+                    {item.text}
+                    <span className="text-white fw-medium">
+                      {item.highlight}
+                    </span>
+                  </span>
+                ))}
               </p>
             </div>
-            <div className="action ">
+            <div className="action d-flex gap-5">
+              <ConnectBtn />
               <DownloadCv />
             </div>
           </div>

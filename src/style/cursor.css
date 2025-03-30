@@ -12,6 +12,7 @@
   transform: translate(-50%, -50%);
   mix-blend-mode: difference;
   transition: transform 0.2s ease-out;
+  z-index: 9999;
 }
 
 /* Scale up when hovering over interactive elements */

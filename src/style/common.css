@@ -26,6 +26,9 @@ a {
 .text-primary {
   color: var(--primary-color) !important;
 }
+/* .underline-primary {
+  text-decoration: underline var(--primary-color) !important;
+} */
 .text-tertiary {
   color: var(--tertiary-color) !important;
 }

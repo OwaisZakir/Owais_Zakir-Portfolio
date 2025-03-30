@@ -1,4 +1,5 @@
 @import url(./cursor.css);
+@import url(./glitch.css);
 :root {
   --text-color: #fcfcfc;
   --sub-text-color: #1f1f1f;

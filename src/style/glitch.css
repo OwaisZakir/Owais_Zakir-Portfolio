@@ -1,0 +1,14 @@
+.glitch-effect {
+  position: relative;
+  display: inline-block;
+  animation: glitch-shadow 0.2s infinite alternate;
+}
+
+@keyframes glitch-shadow {
+  0% {
+    text-shadow: 2px 2px #ff0000, -2px -2px #00ffea;
+  }
+  100% {
+    text-shadow: -2px -2px #ff0000, 2px 2px #00ffea;
+  }
+}
