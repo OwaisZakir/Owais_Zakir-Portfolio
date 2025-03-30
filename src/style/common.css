@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+  font-family: poppins;
+
+  line-height: 1.5;
+  text-decoration: none;
+  list-style: none;
+  text-transform: capitalize;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.h-screen {
+  height: 100vh;
+}
+.w-screen {
+  width: 100vw;
+}
+.bg-primary {
+  background: var(--primary-color) !important;
+}
+.text-primary {
+  color: var(--primary-color) !important;
+}
+.text-tertiary {
+  color: var(--tertiary-color) !important;
+}
