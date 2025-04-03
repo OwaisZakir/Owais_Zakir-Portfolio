@@ -1,13 +1,13 @@
-import React, { useRef } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
-import { MdOutlineHome } from "react-icons/md";
-import { LuAlignRight } from "react-icons/lu";
 import gsap from "gsap";
+import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import DownloadCv from "../../components/header/ui/downloadCv/downloadCv";
-import ConnectBtn from "../../components/header/ui/connectBtn/ConnectBtn";
-import TypingEffect from "../../components/typingEffect/TypingEffect";
+import { LuAlignRight } from "react-icons/lu";
+import { MdOutlineHome } from "react-icons/md";
 import GlitchText from "../../components/Ui/GlitchText";
+import { Button, Col, Container, Row } from "react-bootstrap";
+import ConnectBtn from "../../components/Ui/ConnectBtn";
+import DownloadCv from "../../components/Ui/DownloadCv";
+import TypingEffect from "../../components/typingEffect/TypingEffect";
 
 function Home() {
   const refs = useRef([]);
@@ -75,6 +75,7 @@ function Home() {
                   },
                 ].map((item, index) => (
                   <span key={index}>
+                    {" "}
                     {item.text}
                     <span className="text-white fw-medium">
                       {item.highlight}

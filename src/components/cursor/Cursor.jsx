@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import "../../style/cursor.css";
+// import "../../style/cursor.css";
 
 const Cursor = () => {
   const cursorRef = useRef(null);
@@ -10,7 +10,7 @@ const Cursor = () => {
       gsap.to(cursorRef.current, {
         x: e.clientX,
         y: e.clientY,
-        duration: 0.5,
+        duration: 0.2 ,
         ease: "power2.out",
       });
     };
