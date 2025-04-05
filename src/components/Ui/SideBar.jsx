@@ -45,11 +45,11 @@ function SideBar() {
     // Animate Sidebar Appearance
     gsap.fromTo(
       sidebarRef.current,
-      { opacity: 0, x: -200 },
-      { opacity: 1, x: 0, duration: 1, ease: "power3.out" }
+      { opacity: 0, x: -500 },
+      { opacity: 1, x: 0, duration: 1, ease: "back.out" }
     );
 
-    // Animate Nav Items
+    // Animate Nav Items,
     navItemsRef.current.forEach((item, index) => {
       gsap.fromTo(
         item,
@@ -70,14 +70,13 @@ function SideBar() {
       ref={sidebarRef}
       className="sidebar shadow rounded-3 d-flex flex-column align-items-center"
     >
-      <div className="logo">{/* Add your logo here if needed */}</div>
+      <div className="logo"></div>
       <nav>
         <ul className="sidebar-list p-0 m-0 d-flex flex-column gap-4">
           {navItems.map((item, index) => (
             <li
               key={item.path}
               ref={(el) => (navItemsRef.current[index] = el)} // Store references to nav items
-              className="sidebar-item fs-4 p-2 px-3"
             >
               <OverlayTrigger
                 placement="right"
@@ -88,7 +87,7 @@ function SideBar() {
                   title={item.label}
                   className={`nav-link ${
                     pathname === item.path ? "activeNav text-primary" : ""
-                  }`}
+                  } sidebar-item fs-4 p-2 px-3`}
                 >
                   {React.createElement(
                     pathname === item.path ? item.activeIcon : item.icon

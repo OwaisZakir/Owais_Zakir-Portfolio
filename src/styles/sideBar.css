@@ -8,14 +8,13 @@
 
 transition: left 0.3s ease-in-out; Smooth transition when changing the left position */
 
-
 /* SideBar.css */
 
 .sidebar {
   position: fixed;
-  top: 0;
+  top: 8%;
   left: 0;
-  padding-top: 40px;
+  /* padding-top: 40px; */
   transition: transform 0.3s ease;
 }
 
@@ -39,17 +38,10 @@ transition: left 0.3s ease-in-out; Smooth transition when changing the left posi
 }
 
 .sidebar-item:hover {
-  background-color: #34495e;
-}
-
-.nav-link {
-  color: #ecf0f1;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
+  background-color: var(--tertiary-color);
+  color: black !important;
 }
 
 .nav-link:hover {
   color: #3498db;
 }
-

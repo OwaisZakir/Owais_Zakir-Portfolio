@@ -1,6 +1,7 @@
 @import url(./cursor.css);
 @import url(./glitch.css);
 @import url(./sideBar.css);
+
 :root {
   --text-color: #fcfcfc;
   --sub-text-color: #1f1f1f;
@@ -13,6 +14,11 @@ html::-webkit-scrollbar {
   width: 0px;
   background: transparent;
   display: none;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
   color: var(--text-color);
@@ -77,4 +83,12 @@ body .body-overlay-2 {
     var(--tertiary-color) 10%,
     var(--primary-color) 100%
   );
+}
+
+
+
+.github-icon {
+  position: fixed;
+  bottom: 10%; /* Adjust this value to position the icon vertically */
+  right: 0; /* Adjust this value to position the icon horizontally */
 }
